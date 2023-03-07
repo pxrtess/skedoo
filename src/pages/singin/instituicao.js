@@ -6,81 +6,32 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
+import Styles from "./stylesInt";
 
-import { useNavigation } from "@react-navigation/native";
-
-export default function InstSing() {
-  const navigation = useNavigation();
-  return (
-    <View style={styles.container}>
+export default (props) => (
+  <View style={Styles.container}>
+    <View>
+      <Text style={Styles.txtInit}>Acesso como instituição</Text>
+    </View>
+    <View style={Styles.form}>
+      <Text style={Styles.txtForm}>Email</Text>
+      <TextInput
+        placeholder={"Digite um email.."}
+        style={Styles.txtInput}
+      ></TextInput>
+      <Text style={Styles.txtForm}>Senha</Text>
+      <TextInput
+        placeholder={"Digite uma senha.."}
+        style={Styles.txtInput}
+      ></TextInput>
       <View>
-        <Text style={styles.txtInit}>Acesso como instituição</Text>
-      </View>
-      <View style={styles.form}>
-        <Text style={styles.txtForm}>Email</Text>
-        <TextInput
-          placeholder={"Digite um email.."}
-          style={styles.txtInput}
-        ></TextInput>
-        <Text style={styles.txtForm}>Senha</Text>
-        <TextInput
-          placeholder={"Digite uma senha.."}
-          style={styles.txtInput}
-        ></TextInput>
-        <View>
-          <TouchableOpacity
-            style={styles.botao}
-            onPress={() => navigation.navigate("Home")}
-          >
-            <Text style={styles.txtBtn}>Acessar</Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity
+          style={Styles.botao}
+          onPress={() => props.navigation.navigate("Home")}
+        >
+          <Text style={Styles.txtBtn}>Acessar</Text>
+        </TouchableOpacity>
       </View>
     </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#70bdb5",
-    flex: 1,
-  },
-  txtInit: {
-    fontSize: 30,
-    color: "white",
-    paddingStart: "5%",
-    marginTop: "10%",
-    marginBottom: "5%",
-  },
-  form: {
-    backgroundColor: "white",
-    flex: 1,
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
-  },
-  txtForm: {
-    fontSize: 25,
-    paddingStart: "5%",
-    marginTop: "10%",
-  },
-  txtInput: {
-    fontSize: 20,
-    margin: "5%",
-    borderBottomWidth: 0.5,
-    height: 40,
-  },
-  botao: {
-    width: 300,
-    height: 50,
-    backgroundColor: "#70bdb5",
-    alignSelf: "center",
-    marginTop: 40,
-    borderRadius: 25,
-    justifyContent: "center",
-  },
-  txtBtn: {
-    fontSize: 20,
-    color: "#fff",
-    alignSelf: "center",
-  },
-});
+  </View>
+);
