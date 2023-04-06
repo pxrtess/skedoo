@@ -1,0 +1,70 @@
+import { StyleSheet } from "react-native";
+
+export default StyleSheet.create({
+  flex: {
+    display: "flex",
+    height: "100%",
+  },
+  main: {
+    backgroundColor: "#70bdb5",
+    paddingTop: "10%",
+    flex: 1,
+  },
+  botaoI: {
+    width: 300,
+    height: 50,
+    backgroundColor: "#70bdb5",
+    alignSelf: "center",
+    marginTop: 40,
+    borderRadius: 25,
+    justifyContent: "center",
+  },
+  txtBtn: {
+    fontSize: 20,
+    color: "#fff",
+    alignSelf: "center",
+  },
+  botaoR: {
+    width: 300,
+    height: 50,
+    backgroundColor: "#87CEFA",
+    alignSelf: "center",
+    marginTop: 40,
+    borderRadius: 25,
+    justifyContent: "center",
+  },
+  botaoE: {
+    width: 300,
+    height: 50,
+    backgroundColor: "#EE82EE",
+    alignSelf: "center",
+    marginTop: 40,
+    borderRadius: 25,
+    justifyContent: "center",
+    marginBottom: 40,
+  },
+  form: {
+    width: "100%",
+    position: "absolute",
+    display: "flex",
+    marginBottom: "auto",
+    backgroundColor: "white",
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    bottom: 0,
+  },
+  subTt: {
+    fontSize: 20,
+    color: "#fff",
+    marginTop: 40,
+    marginBottom: 40,
+    alignSelf: "center",
+  },
+  txt: {
+    fontSize: 20,
+    color: "#fff",
+    marginBottom: 40,
+    marginLeft: 20,
+    marginRight: 20,
+  },
+});

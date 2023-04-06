@@ -1,12 +1,14 @@
 import React from "react";
+import { View } from "react-native";
+import FabButton from "./src/components/FabButton";
+import Navigation from "./src/navigation";
 
-import { NavigationContainer } from "@react-navigation/native";
-import Routes from "./src/routes";
+export default (props) => <Navigation />;
 
-export default function App() {
+export function App() {
   return (
-    <NavigationContainer>
-      <Routes />
-    </NavigationContainer>
+    <View>
+      <FabButton />
+    </View>
   );
 }

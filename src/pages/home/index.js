@@ -1,17 +1,24 @@
 import { StatusBar } from "expo-status-bar";
 import {
-  StyleSheet,
   Text,
   View,
   SafeAreaView,
   Image,
   TouchableOpacity,
 } from "react-native";
+import { FontAwesome5 } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
+import Styles from "./styles";
+import FabButton from "../../components/FabButton.js";
+import ListaHorizontal from "../../components/listaHorizontal";
 
-export default function Home() {
+const data = [];
+
+export default (props) => {
   return (
-    <SafeAreaView style={styles.inicial}>
-      <View style={styles.navbar}>
+    <SafeAreaView style={Styles.inicial}>
+      <View style={Styles.navbar}>
         <View style={{ marginLeft: 20, flex: 1 }}>
           <Image
             source={require("../../../assets/adaptive-icon.png")}
@@ -24,6 +31,7 @@ export default function Home() {
         <View>
           <TouchableOpacity
             style={{ width: 40, height: 40, marginRight: "5%" }}
+            onPress={() => props.navigation.navigate("Profile")}
           >
             <Image
               source={{
@@ -38,9 +46,18 @@ export default function Home() {
           </TouchableOpacity>
         </View>
       </View>
-      <View style={styles.container}>
-        <View style={styles.card1}>
-          <View style={styles.msg_global}>
+      <View style={Styles.container}>
+        <View style={Styles.card1}>
+          <View style={Styles.miniChatGeral}>
+            <Text style={Styles.titleChat}>Chat Rápido</Text>
+            <Entypo
+              name="chat"
+              size={70}
+              color="white"
+              style={Styles.iconChatGlobal}
+            />
+          </View>
+          <TouchableOpacity style={Styles.msg_global}>
             <Text
               style={{
                 fontSize: 16,
@@ -49,73 +66,47 @@ export default function Home() {
                 marginLeft: "5%",
               }}
             >
-              Mande uma mensagem geral...
+              Envie uma mensagem geral...
             </Text>
-          </View>
+            <MaterialIcons
+              name="keyboard-arrow-right"
+              size={35}
+              color="black"
+              style={Styles.iconSendChatGlobal}
+            />
+          </TouchableOpacity>
         </View>
-        <View style={styles.flex_cards}>
-          <View style={styles.cardL}></View>
-          <View style={styles.cardR}></View>
+        <View style={Styles.flex_cards}>
+          <TouchableOpacity style={Styles.cardL}>
+            <MaterialIcons
+              name="notification-important"
+              size={70}
+              color="#70bdb5"
+              style={Styles.contentCard}
+            />
+            <Text style={Styles.contentCardText}>Importante</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={Styles.cardR}>
+            <FontAwesome5
+              name="money-check-alt"
+              size={70}
+              color="#70bdb5"
+              style={Styles.contentCard}
+            />
+            <Text style={Styles.contentCardText}>Financeiro</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={Styles.cardOutros}>
+          <TouchableOpacity>
+            <Text style={Styles.ttCard}>Outras funções...</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={{ marginHorizontal: 10 }}>
+          <ListaHorizontal data={data} />
         </View>
         <StatusBar style="auto" />
       </View>
+      <FabButton />
     </SafeAreaView>
   );
-}
-
-const styles = StyleSheet.create({
-  flex_cards: {
-    display: "flex",
-    flexDirection: "row",
-    height: "40%",
-  },
-  cardL: {
-    marginLeft: "5%",
-    marginRight: "2.5%",
-    width: "42.5%",
-    height: "50%",
-    backgroundColor: "white",
-    float: "left",
-    borderRadius: 20,
-  },
-  cardR: {
-    marginLeft: "2.5%",
-    marginRight: "5%",
-    width: "42.5%",
-    height: "50%",
-    backgroundColor: "white",
-    borderRadius: 20,
-  },
-  msg_global: {
-    position: "absolute",
-    bottom: 0,
-    width: "85%",
-    height: 40,
-    backgroundColor: "red",
-    marginBottom: "5%",
-    borderRadius: 100,
-  },
-  card1: {
-    margin: "5%",
-    height: "25%",
-    backgroundColor: "white",
-    borderRadius: 20,
-    alignItems: "center",
-  },
-  inicial: {
-    height: "100%",
-    width: "100%",
-  },
-  container: {
-    flex: 1,
-    backgroundColor: "#DCDCDC",
-  },
-  navbar: {
-    display: "flex",
-    flexDirection: "row",
-    backgroundColor: "#FFF",
-    height: 80,
-    width: "100%",
-    alignItems: "center",
-  },
-});
+};
